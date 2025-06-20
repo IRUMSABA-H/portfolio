@@ -6,6 +6,7 @@ import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Certifications from "@/components/Certification";
+import Contact from "@/components/Contact";
 export default function Home() {
   useEffect(() => {
     document.title = "Talha Mobeen | Full Stack Developer";
@@ -20,7 +21,7 @@ export default function Home() {
       <Experience />
       <Education />
       <Certifications />
-      {/* More sections: About, Skills, Experience, Education, Contact */}
+      <Contact />
     </main>
   );
 }

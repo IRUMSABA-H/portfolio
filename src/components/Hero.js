@@ -5,7 +5,7 @@ export default function Hero() {
         <a
           href="/Talha_Mobeen.pdf"
           download
-          className="px-6 py-2 bg-[#343434] text-white rounded-lg hover:bg-[#343434] transition"
+          className="px-6 py-2 bg-[#343434] text-white rounded-lg hover:bg-[#343434] transition mb-4"
         >
           Download Resume
         </a>
