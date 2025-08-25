@@ -13,7 +13,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="scroll-smooth">
+    <main className="scroll-smooth bg-black text-white min-h-screen">
       <Navbar />
       <Hero />
       <About />

@@ -9,10 +9,13 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white dark:bg-gray-900 shadow-md py-4 px-6 md:px-8 flex justify-between items-center transition-colors duration-300">
       {/* Brand */}
-      <h1 className="font-bold text-xl text-black dark:text-white">Talha Mobeen</h1>
+     <h1 className="font-bold text-[19px] text-black dark:text-white border border-black p-[5px]">
+  TM
+</h1>
+
 
       {/* Desktop Links */}
-      <div className="hidden md:flex space-x-6 text-sm text-black dark:text-white">
+     <div className="hidden md:flex space-x-12 text-l text-black dark:text-white mr-18">
         <Link href="#about" className="hover:underline">About</Link>
         <Link href="#skills" className="hover:underline">Skills</Link>
         <Link href="#experience" className="hover:underline">Experience</Link>
@@ -40,4 +43,4 @@ export default function Navbar() {
       )}
     </nav>
   );
-}
+} 

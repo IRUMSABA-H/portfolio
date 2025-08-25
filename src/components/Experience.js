@@ -1,3 +1,6 @@
+'use client';
+import { motion } from 'framer-motion';
+
 const experienceData = [
   {
     role: "Senior Full Stack Developer",
@@ -44,19 +47,93 @@ const experienceData = [
 ];
 
 export default function Experience() {
+
+  const lineVariant = {
+    hidden: { height: 0 },
+    show: { 
+      height: '100%', 
+      transition: { duration: 2, ease: "easeInOut" } 
+    },
+  };
+
   return (
-    <section id="experience" className="py-20 px-4 md:px-16 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white animate-slideIn">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-10 text-center">Experience</h2>
-        <div className="relative border-l-2 border-[#000] dark:border-blue-400 ml-4">
-          {experienceData.map((exp, index) => (
-            <div key={index} className="mb-10 ml-6">
-              <div className="absolute w-4 h-4 bg-[#000] dark:bg-[#000] rounded-full -left-2.5 mt-1.5"></div>
-              <h3 className="text-xl font-semibold">{exp.role} <span className="text-[#000]">@ {exp.company}</span></h3>
-              <p className="text-sm text-[#000] dark:text-[#000] mb-2">{exp.duration}</p>
-              <p className="text-md leading-relaxed">{exp.description}</p>
-            </div>
-          ))}
+    <section id="experience" className="py-20 px-4 md:px-16 bg-black text-white">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Heading */}
+        <motion.h2 
+          className="text-3xl font-bold mb-16 text-center"
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          Experience
+        </motion.h2>
+
+        <div className="relative max-w-4xl mx-auto">
+          {/* Animated timeline line */}
+          <motion.div 
+            className="absolute left-4 top-0 w-0.5 bg-white origin-top"
+            variants={lineVariant}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+          />
+
+          {/* Experience items */}
+          <div className="relative">
+            {experienceData.map((exp, index) => (
+              <motion.div 
+                key={index} 
+                className="mb-12 flex items-start"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+              >
+                {/* Dot */}
+                <motion.div 
+                  className="flex-shrink-0 w-4 h-4 bg-white rounded-full mt-2 mr-8 relative z-10"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                />
+                
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <motion.h3 
+                    className="text-xl font-semibold text-white mb-1"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                  >
+                    {exp.role} 
+                    <span className="text-gray-300"> @ {exp.company}</span>
+                  </motion.h3>
+                  <motion.p 
+                    className="text-sm text-gray-400 mb-3"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.1 }}
+                  >
+                    {exp.duration}
+                  </motion.p>
+                  <motion.p 
+                    className="text-gray-200 leading-relaxed"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                  >
+                    {exp.description}
+                  </motion.p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
